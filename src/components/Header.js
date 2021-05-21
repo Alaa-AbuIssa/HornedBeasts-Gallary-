@@ -3,7 +3,7 @@ class Header extends React.Component {
     render () 
     {
         return (
-            <h1>Gallary Of Horns</h1>
+            <h1>HornedBeast Gallary </h1>
         )
     }
 }
