@@ -10,6 +10,7 @@ class HornedBeast extends React.Component {
 
 
     }
+
     increaseFavorites = () => {
         this.setState(
             {
@@ -26,7 +27,7 @@ class HornedBeast extends React.Component {
 
             <div>
 
-                <Card border="primary" style={{ width: '18rem' }}>
+                <Card border="primary"  style={{ width: '18rem' }} >
                     <Card.Body>
                         <Card.Title> {this.props.title}</Card.Title>
                         
