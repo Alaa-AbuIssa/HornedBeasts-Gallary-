@@ -1,24 +1,43 @@
 import React from 'react';
 import Header from './components/Header';
-import Main from  './components/Main';
+import Main from './components/Main';
 import Footer from './components/Footer';
-// import Horned from './components/Horned.json';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import SelectedBeast from './components/SelectedBeast ';
+import data from './components/Horned.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends React.Component {
-  render () {
-    return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      element: data,
+      show: false,
+      obj: {}
+    };
+  }
 
-      <>
-        <Header/>
-        <Main/>
-        <Footer/>
-      </>
-    
-    )
+  HornedCardShowing = (event) => {
+    this.setState({
+      show: true,
+      obj: event
+    });
+    console.log(event);
+  }
+  dontShowCard = () => {
+    this.setState({
+      show: false,
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Header />
+        <Main data={this.state.element} showing={this.HornedCardShowing} />
+        <SelectedBeast show={this.state.show} dontShowCard={this.dontShowCard} obj={this.state.obj} />
+        <Footer />
+      </div>
+    );
   }
 }
 

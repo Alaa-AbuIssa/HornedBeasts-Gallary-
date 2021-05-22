@@ -1,25 +1,30 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CardGroup from 'react-bootstrap/CardGroup';
+// import Horned from './Horned.json';
 import HornedBeast from './HornedBeasts';
-import Horned from './Horned.json';
-class Main extends React.Component {
-    render() {
-        return (
-            <>
-                {
-                    Horned.map(item => {
-                        return (
-                            <HornedBeast
-                                title={item.title}
-                                img={item.image_url}
-                                description={item.description}
 
-                            />
-                        )
-                    })
-                }
-            </>
-        )
-    }
+class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      elementData: this.props.data
+    };
+  }
+
+  render() {
+    let arraElment = this.state.elementData.map(element => {
+      return (
+        <HornedBeast
+            title={element.title}
+            image_url={element.image_url}
+            description={element.description}
+            showing={this.props.showing}
+        />
+      );
+    });
+    return (<CardGroup id='group'>{arraElment}</CardGroup>);
+
+  }
 }
 export default Main;
-
